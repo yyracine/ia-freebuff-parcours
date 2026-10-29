@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="IA & Freebuff">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#12152a"/>
+      <stop offset="1" stop-color="#070810"/>
+    </linearGradient>
+    <linearGradient id="acc" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#8b7cff"/>
+      <stop offset="0.55" stop-color="#4fd1c5"/>
+      <stop offset="1" stop-color="#c8f56a"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <g fill="none" stroke="url(#acc)" stroke-width="22" stroke-linejoin="round">
+    <path d="M256 96 122 171v170l134 75 134-75V171Z"/>
+    <path d="M256 196l-62 35v50l62 35 62-35v-50Z"/>
+  </g>
+  <circle cx="256" cy="256" r="26" fill="#c8f56a"/>
+</svg>

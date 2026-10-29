@@ -1,0 +1,28 @@
+{
+  "name": "IA & Freebuff — Parcours interactif",
+  "short_name": "IA & Freebuff",
+  "description": "Parcours interactif : IA, harnais, agents, skills, MCP, hooks, vibe coding et maîtrise de Freebuff.",
+  "lang": "fr",
+  "dir": "ltr",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#08090e",
+  "theme_color": "#08090e",
+  "categories": ["education", "productivity", "developer"],
+  "icons": [
+    {
+      "src": "./icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/maskable.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}
