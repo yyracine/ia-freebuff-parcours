@@ -1,0 +1,10 @@
+# Artefacts de téléchargement
+*.zip
+
+# Système
+.DS_Store
+Thumbs.db
+
+# Dépendances et secrets locaux (le projet n'en utilise pas)
+node_modules/
+.env

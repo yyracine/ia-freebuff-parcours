@@ -1,0 +1,53 @@
+name: Vérifications
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  verifier:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Syntaxe des scripts
+        run: |
+          set -e
+          for f in js/*.js sw.js; do
+            node --check "$f"
+          done
+          echo "scripts : OK"
+
+      - name: Équilibre des accolades CSS
+        run: |
+          node -e '
+          const fs = require("fs");
+          const css = fs.readFileSync("css/styles.css", "utf8");
+          const open = (css.match(/{/g) || []).length;
+          const close = (css.match(/}/g) || []).length;
+          console.log("accolades", open, close);
+          if (open !== close) process.exit(1);
+          '
+
+      - name: Références locales de index.html
+        run: |
+          node -e '
+          const fs = require("fs");
+          const html = fs.readFileSync("index.html", "utf8");
+          const refs = [...html.matchAll(/(?:src|href)="\.\/([^"]+)"/g)].map((m) => m[1]);
+          const missing = refs.filter((r) => !fs.existsSync(r));
+          console.log(refs.length + " références vérifiées");
+          if (missing.length) { console.error("manquants : " + missing.join(", ")); process.exit(1); }
+          '
+
+      - name: Manifeste installable
+        run: |
+          node -e 'JSON.parse(require("fs").readFileSync("manifest.webmanifest","utf8")); console.log("manifeste : OK")'
